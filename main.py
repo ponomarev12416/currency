@@ -6,6 +6,8 @@ from time import sleep
 from service import Service
 from db_service import DataBase
 from retrieve_changes import fetch_start_page_token, fetch_changes
+
+
 def main():
     logging.getLogger('googleapicliet.discovery_cache').setLevel(logging.CRITICAL)
     FORMAT = '%(asctime)s %(message)s'
