@@ -7,7 +7,7 @@ from decimal import Decimal
 
 def get_daily_currency_data(date=''):
     '''
-    Provide the XML with valute curs on the given date.
+    Provide the XML with valute exchange rate on the given date.
 
     Goes to http://www.cbr.ru/scripts/XML_daily.asp and retreive
     valute curs on given date. Returns data in XML format.
@@ -32,9 +32,9 @@ def get_daily_currency_data(date=''):
 
 def __extract_currency_value(data_xml, iso_code):
     '''
-    Extract valute curs from XML file.
+    Extract valute exchange rate from XML file.
 
-    Extract curs of the valute from the
+    Extract exchange rate of the valute from the
     given XML file, coresponding the given iso_code.
 
     Parameters
@@ -47,7 +47,7 @@ def __extract_currency_value(data_xml, iso_code):
     Returns
     -------
     Decimal
-        The decimal representation of the curs value.
+        The decimal representation of the exchange rate value.
     '''
     root = ET.fromstring(data_xml)
     for child in root:
@@ -58,7 +58,7 @@ def __extract_currency_value(data_xml, iso_code):
 @lru_cache(maxsize=124)
 def get_currency_value(date='', iso_code='R01235'):
     '''
-    Return the value of the curs on the given date
+    Return the value of the exchange rate on the given date
 
     Parameters
     ----------
